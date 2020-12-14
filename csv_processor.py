@@ -61,7 +61,7 @@ def createIntensityFunction(intensity_vs_time, start_string):
 def graphIntensityFunction(intensity_function, start_hour, end_hour):
     function_slice = intensity_function[start_hour*3600:end_hour*3600]
     x = np.linspace(0.0, (end_hour - start_hour), 3600*(end_hour - start_hour))
-    plt.plot(x, function_slice, 'o', color='black')
+    plt.plot(x, function_slice, '.-', color='black', linewidth=1)
     plt.show()
 
 def postProcessHeadacheIntensity(headache_intensity_vs_time):
@@ -90,4 +90,4 @@ if __name__ == "__main__":
     augmented_headache_intensity_vs_time = postProcessHeadacheIntensity(headache_intensity_vs_time)
     headache_intensity_function = createIntensityFunction(augmented_headache_intensity_vs_time, "5/17/2018 00:00:00")
 
-    graphIntensityFunction(headache_intensity_function, 310, 311)
+    graphIntensityFunction(headache_intensity_function, 0, 168)
